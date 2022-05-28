@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<title>BlackZap</title>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="shortcut icon" href="favicon.jpg">
+<style>
+    header {
+      background:"headerbg2.png";
+      background-repeat: no-repeat;
+    }
+    @font-face {
+      font-family: Gotham Rounded;
+      src: url("font.otf") format("opentype");
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      font-family: Gotham Rounded;
+    }
+    body {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      background: url("bg.jpeg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .container {
+      width: 700px;
+      max-width: 90%;
+    }
+    .black {
+      background-color: forestgreen;
+      padding: 10px;
+      text-align: center;
+      border-radius: 20px;
+      box-shadow: 0 0 10px 2px black;
+    }
+    .answer {
+      display: grid;
+      grid-template-columns: repeat(1, auto);
+      gap: 10px;
+    }
+    @media (max-width: 991px) {
+      .answer {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        gap: 10px;
+      }
+    }
+    .btn {
+      border-radius: 10px;
+      padding: 5px 10px;
+      font-size: 30px;
+      background-color: #01341e;
+      outline: none;
+      text-decoration: none;
+      color: white;
+    }
+    .black h1 {
+      color: black;
+    }
+    .black p {
+      font-size: 18px;
+      color: white;
+    }
+    .hide {
+      display: none;
+    }
+  </style>
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '534399554691301');
+  fbq('track', 'AddToCart');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=534399554691301&ev=AddToCart&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+<body>
+
+<div class="container">
+<div class="black">
+<div id="primeira">
+<div class="question">
+<h1>Finalização de Acesso</h1>
+<p>IMPORTANTE! Coloque um e-mail que você tenha acesso, pois será por ele que você receberá as informações das aulas.</p>
+<p>Para maior segurança das informações pessoais de cada um, os pagamentos são exclusivos por pix e NÃO por cartão de crédito.</p>
+</div>
+<div class="answer">
+<button class="btn" onclick="segunda()">OK</button>
+</div>
+</div>
+<div id="segunda" class="hide">
+<div class="question">
+<h1>PAGAMENTO</h1>
+<div>
+  <div>
+        <img class="img" width="150px" src="pagamento.jpeg">
+        <br>
+        <br>
+      <div><label for="email">E-mail:</label>
+        <input type="email" id="email" name="email_usuario">
+      </div>
+</div>
+<div> <br>
+  <input type="text" name="texto" id="texto" placeholder="00020126580014BR.GOV.BCB.PIX013620efc65a-8184-43f6-816f-c8ccde4e26e3520400005303986540597.005802BR5917Alice Leite Silva6009SAO PAULO61080540900062070503***6304FDC6" />
+    <button onclick="copiarTexto()">Copiar</button>
+  </div>
+  <p>Use o QrCode acima para realizar o pagamento ou copie o link abaixo para fazer o pagamento pelo seu banco.<p>
+    <div>
+<p>Após a confirmação de pagamento você receberá as informações das aulas em seu e-mail.</p>
+</div>
+<div class="answer">
+<button class="btn" onclick="redirect()">CONTINUAR</button> 
+</div>
+</div>
+<div id="terceira" class="hide">
+<div class="question">
+<h1>Pergunta 3</h1>
+<p>O vídeo a seguir tem um limite para pouquíssimas pessoas verem ao mesmo tempo... Você pretende ver até o fim?</p>
+</div>
+<div class="answer">
+<button class="btn" onclick="redirect()">SIM</button>
+<button class="btn" onclick="redirect()">NÃO</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    function segunda() {
+      document.getElementById("primeira").classList.add("hide")
+      document.getElementById("segunda").classList.remove("hide")
+    }
+    function terceira() {
+      document.getElementById("segunda").classList.add("hide")
+      document.getElementById("terceira").classList.remove("hide")
+    }
+    function redirect() {
+      location.href = "https://blackzap.site"
+    }
+
+    function copiarTexto() {
+        let textoCopiado = document.getElementById("texto");
+        textoCopiado.select();
+        textoCopiado.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+        alert("TextoCopiado" + textoCopiado.value);
+    }
+</script>
+  </script>
+</body>
+</html>
